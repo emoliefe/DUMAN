@@ -2,7 +2,6 @@
 
 import { useRef, useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 
 interface Tab {
   label: string
@@ -76,16 +75,13 @@ function ComparisonSlider({ before, after }: { before: string; after: string }) 
     >
       {/* BEFORE image - full width */}
       <div className="absolute inset-0">
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src={before}
           alt="Temizlik öncesi"
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 700px"
-          priority
+          className="w-full h-full object-cover"
         />
-        {/* Dark overlay to emphasize "before" */}
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
       {/* AFTER image - clipped */}
@@ -93,13 +89,11 @@ function ComparisonSlider({ before, after }: { before: string; after: string }) 
         className="absolute inset-0 overflow-hidden"
         style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
       >
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src={after}
           alt="Temizlik sonrası"
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 700px"
-          priority
+          className="w-full h-full object-cover"
         />
       </div>
 

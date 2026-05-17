@@ -1,71 +1,74 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" preserveAspectRatio="xMidYMid slice">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
   <defs>
-    <filter id="fabric-dirty2">
-      <feTurbulence type="fractalNoise" baseFrequency="0.55 0.4" numOctaves="4" seed="9" result="noise"/>
-      <feColorMatrix type="matrix" values="0.35 0 0 0 0.2  0 0.28 0 0 0.14  0 0 0.15 0 0.05  0 0 0 2 -0.3" in="noise" result="tinted"/>
-      <feBlend in="SourceGraphic" in2="tinted" mode="multiply"/>
-      <feComposite in2="SourceGraphic" operator="in"/>
+    <filter id="stain-tex">
+      <feTurbulence type="fractalNoise" baseFrequency="0.5 0.4" numOctaves="4" seed="9"/>
+      <feColorMatrix type="matrix" values="0.5 0 0 0 0.25  0 0.4 0 0 0.18  0 0 0.1 0 0  0 0 0 2.5 -0.4"/>
+      <feBlend in="SourceGraphic" mode="multiply" result="out"/>
+      <feComposite in="out" in2="SourceGraphic" operator="in"/>
     </filter>
-    <filter id="stain-soft">
-      <feGaussianBlur stdDeviation="22"/>
+    <filter id="stain-b">
+      <feGaussianBlur stdDeviation="24"/>
     </filter>
-    <radialGradient id="vig5" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" stop-color="transparent"/>
-      <stop offset="100%" stop-color="#000" stop-opacity="0.45"/>
+    <radialGradient id="vg3" cx="50%" cy="50%" r="75%">
+      <stop offset="20%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.5"/>
     </radialGradient>
-    <linearGradient id="headliner-dirty" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#c4ad7a"/>
-      <stop offset="100%" stop-color="#9a8550"/>
+    <linearGradient id="ceil-d" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0%" stop-color="#c8b878"/>
+      <stop offset="50%" stop-color="#b0a060"/>
+      <stop offset="100%" stop-color="#988848"/>
     </linearGradient>
   </defs>
 
-  <!-- Dirty yellowish ceiling background -->
-  <rect width="800" height="600" fill="#b8a06a"/>
+  <!-- Yellowed ceiling fabric -->
+  <rect width="800" height="600" fill="url(#ceil-d)"/>
+  <rect width="800" height="600" filter="url(#stain-tex)" opacity="0.85"/>
 
-  <!-- Headliner fabric (yellowed) -->
-  <rect width="800" height="600" fill="url(#headliner-dirty)"/>
-  <rect width="800" height="600" filter="url(#fabric-dirty2)" opacity="0.8"/>
+  <!-- Car frame edges -->
+  <rect x="0" y="0" width="55" height="600" fill="#1e1810" opacity="0.95"/>
+  <rect x="745" y="0" width="55" height="600" fill="#1e1810" opacity="0.95"/>
+  <rect x="0" y="0" width="800" height="50" fill="#1e1810" opacity="0.9"/>
+  <rect x="0" y="550" width="800" height="50" fill="#1e1810" opacity="0.9"/>
 
-  <!-- Car interior edges (A-pillar, sides) -->
-  <rect x="0" y="0" width="60" height="600" fill="#2a2010" opacity="0.9"/>
-  <rect x="740" y="0" width="60" height="600" fill="#2a2010" opacity="0.9"/>
-  <rect x="0" y="0" width="800" height="45" fill="#2a2010" opacity="0.85"/>
-  <rect x="0" y="555" width="800" height="45" fill="#2a2010" opacity="0.85"/>
+  <!-- Grab handle left -->
+  <rect x="100" y="70" width="130" height="22" rx="11" fill="#5a4820" opacity="0.9"/>
+  <!-- Grab handle right -->
+  <rect x="570" y="70" width="130" height="22" rx="11" fill="#5a4820" opacity="0.9"/>
 
-  <!-- Map light housing -->
-  <rect x="330" y="65" width="140" height="45" rx="8" fill="#8a7845" opacity="0.9"/>
-  <rect x="340" y="72" width="55" height="28" rx="5" fill="#5a4820"/>
-  <rect x="405" y="72" width="55" height="28" rx="5" fill="#5a4820"/>
+  <!-- Map light unit (yellowed/dirty) -->
+  <rect x="320" y="55" width="160" height="55" rx="10" fill="#8a7840"/>
+  <rect x="332" y="65" width="60" height="32" rx="6" fill="#4a3a18"/>
+  <rect x="408" y="65" width="60" height="32" rx="6" fill="#4a3a18"/>
+  <!-- Grime on map light -->
+  <rect x="320" y="55" width="160" height="55" rx="10" fill="#60480a" opacity="0.3"/>
 
-  <!-- Sunroof frame (if present) -->
-  <rect x="200" y="100" width="400" height="280" rx="5" fill="#8a7038" opacity="0.3"/>
+  <!-- Sunvisor outlines (dirty) -->
+  <rect x="120" y="95" width="220" height="18" rx="5" fill="#7a6030" opacity="0.7"/>
+  <rect x="460" y="95" width="220" height="18" rx="5" fill="#7a6030" opacity="0.7"/>
 
-  <!-- STAINS -->
-  <!-- Big brown stain center -->
-  <ellipse cx="380" cy="200" rx="100" ry="65" fill="#7a5820" opacity="0.6" filter="url(#stain-soft)"/>
-  <!-- Stain upper right (coffee?) -->
-  <ellipse cx="580" cy="130" rx="70" ry="45" fill="#6a4810" opacity="0.55" filter="url(#stain-soft)"/>
-  <!-- Stain left side -->
-  <ellipse cx="170" cy="300" rx="60" ry="40" fill="#7a5818" opacity="0.5" filter="url(#stain-soft)"/>
-  <!-- Small stain bottom -->
-  <ellipse cx="450" cy="430" rx="50" ry="30" fill="#6a4815" opacity="0.55" filter="url(#stain-soft)"/>
-  <!-- Ring stain -->
-  <ellipse cx="600" cy="350" rx="40" ry="25" fill="#7a5820" opacity="0.45" filter="url(#stain-soft)"/>
-  <!-- Grease spot -->
-  <ellipse cx="230" cy="150" rx="30" ry="20" fill="#5a3810" opacity="0.6" filter="url(#stain-soft)"/>
+  <!-- STAINS - large and visible -->
+  <ellipse cx="310" cy="260" rx="130" ry="90" fill="#7a5010" opacity="0.65" filter="url(#stain-b)"/>
+  <ellipse cx="580" cy="180" rx="95" ry="65" fill="#684010" opacity="0.6" filter="url(#stain-b)"/>
+  <ellipse cx="180" cy="380" rx="85" ry="60" fill="#6a4812" opacity="0.6" filter="url(#stain-b)"/>
+  <ellipse cx="520" cy="400" rx="75" ry="50" fill="#724e10" opacity="0.55" filter="url(#stain-b)"/>
+  <ellipse cx="400" cy="480" rx="110" ry="55" fill="#6a4a10" opacity="0.6" filter="url(#stain-b)"/>
+  <ellipse cx="660" cy="310" rx="65" ry="45" fill="#5a3c0c" opacity="0.55" filter="url(#stain-b)"/>
+  <!-- Drip stains -->
+  <ellipse cx="350" cy="150" rx="25" ry="45" fill="#5a3c10" opacity="0.5" filter="url(#stain-b)"/>
+  <ellipse cx="490" cy="200" rx="20" ry="35" fill="#604010" opacity="0.5" filter="url(#stain-b)"/>
 
   <!-- Water damage streaks -->
-  <rect x="280" y="80" width="4" height="180" rx="2" fill="#8a6828" opacity="0.3"/>
-  <rect x="520" y="80" width="3" height="140" rx="2" fill="#8a6828" opacity="0.25"/>
-  <rect x="420" y="80" width="3" height="220" rx="2" fill="#7a5818" opacity="0.3"/>
+  <rect x="270" y="55" width="5" height="220" rx="3" fill="#7a5818" opacity="0.35"/>
+  <rect x="430" y="55" width="4" height="280" rx="2" fill="#7a5818" opacity="0.3"/>
+  <rect x="550" y="55" width="4" height="180" rx="2" fill="#7a5818" opacity="0.3"/>
 
-  <!-- Smoke/nicotine discoloration -->
-  <rect width="800" height="600" fill="#c89840" opacity="0.08"/>
+  <!-- Nicotine/smoke yellow tint -->
+  <rect width="800" height="600" fill="#c08830" opacity="0.1"/>
 
   <!-- Vignette -->
-  <rect width="800" height="600" fill="url(#vig5)"/>
+  <rect width="800" height="600" fill="url(#vg3)"/>
 
-  <!-- Label -->
-  <rect x="20" y="20" width="110" height="34" rx="8" fill="#000" opacity="0.65"/>
-  <text x="75" y="42" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#ffffff" opacity="0.75" text-anchor="middle" letter-spacing="2">ÖNCE</text>
+  <!-- ÖNCE label -->
+  <rect x="22" y="22" width="105" height="36" rx="10" fill="#000" opacity="0.7"/>
+  <text x="74" y="45" font-family="Arial Black, Arial, sans-serif" font-size="14" font-weight="900" fill="#ddd" text-anchor="middle" letter-spacing="3">ÖNCE</text>
 </svg>
