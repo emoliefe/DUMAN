@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <filter id="fabric-dirty2">
+      <feTurbulence type="fractalNoise" baseFrequency="0.55 0.4" numOctaves="4" seed="9" result="noise"/>
+      <feColorMatrix type="matrix" values="0.35 0 0 0 0.2  0 0.28 0 0 0.14  0 0 0.15 0 0.05  0 0 0 2 -0.3" in="noise" result="tinted"/>
+      <feBlend in="SourceGraphic" in2="tinted" mode="multiply"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+    <filter id="stain-soft">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <radialGradient id="vig5" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.45"/>
+    </radialGradient>
+    <linearGradient id="headliner-dirty" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c4ad7a"/>
+      <stop offset="100%" stop-color="#9a8550"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Dirty yellowish ceiling background -->
+  <rect width="800" height="600" fill="#b8a06a"/>
+
+  <!-- Headliner fabric (yellowed) -->
+  <rect width="800" height="600" fill="url(#headliner-dirty)"/>
+  <rect width="800" height="600" filter="url(#fabric-dirty2)" opacity="0.8"/>
+
+  <!-- Car interior edges (A-pillar, sides) -->
+  <rect x="0" y="0" width="60" height="600" fill="#2a2010" opacity="0.9"/>
+  <rect x="740" y="0" width="60" height="600" fill="#2a2010" opacity="0.9"/>
+  <rect x="0" y="0" width="800" height="45" fill="#2a2010" opacity="0.85"/>
+  <rect x="0" y="555" width="800" height="45" fill="#2a2010" opacity="0.85"/>
+
+  <!-- Map light housing -->
+  <rect x="330" y="65" width="140" height="45" rx="8" fill="#8a7845" opacity="0.9"/>
+  <rect x="340" y="72" width="55" height="28" rx="5" fill="#5a4820"/>
+  <rect x="405" y="72" width="55" height="28" rx="5" fill="#5a4820"/>
+
+  <!-- Sunroof frame (if present) -->
+  <rect x="200" y="100" width="400" height="280" rx="5" fill="#8a7038" opacity="0.3"/>
+
+  <!-- STAINS -->
+  <!-- Big brown stain center -->
+  <ellipse cx="380" cy="200" rx="100" ry="65" fill="#7a5820" opacity="0.6" filter="url(#stain-soft)"/>
+  <!-- Stain upper right (coffee?) -->
+  <ellipse cx="580" cy="130" rx="70" ry="45" fill="#6a4810" opacity="0.55" filter="url(#stain-soft)"/>
+  <!-- Stain left side -->
+  <ellipse cx="170" cy="300" rx="60" ry="40" fill="#7a5818" opacity="0.5" filter="url(#stain-soft)"/>
+  <!-- Small stain bottom -->
+  <ellipse cx="450" cy="430" rx="50" ry="30" fill="#6a4815" opacity="0.55" filter="url(#stain-soft)"/>
+  <!-- Ring stain -->
+  <ellipse cx="600" cy="350" rx="40" ry="25" fill="#7a5820" opacity="0.45" filter="url(#stain-soft)"/>
+  <!-- Grease spot -->
+  <ellipse cx="230" cy="150" rx="30" ry="20" fill="#5a3810" opacity="0.6" filter="url(#stain-soft)"/>
+
+  <!-- Water damage streaks -->
+  <rect x="280" y="80" width="4" height="180" rx="2" fill="#8a6828" opacity="0.3"/>
+  <rect x="520" y="80" width="3" height="140" rx="2" fill="#8a6828" opacity="0.25"/>
+  <rect x="420" y="80" width="3" height="220" rx="2" fill="#7a5818" opacity="0.3"/>
+
+  <!-- Smoke/nicotine discoloration -->
+  <rect width="800" height="600" fill="#c89840" opacity="0.08"/>
+
+  <!-- Vignette -->
+  <rect width="800" height="600" fill="url(#vig5)"/>
+
+  <!-- Label -->
+  <rect x="20" y="20" width="110" height="34" rx="8" fill="#000" opacity="0.65"/>
+  <text x="75" y="42" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#ffffff" opacity="0.75" text-anchor="middle" letter-spacing="2">ÖNCE</text>
+</svg>

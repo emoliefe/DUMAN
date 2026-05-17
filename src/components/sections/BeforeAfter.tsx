@@ -13,23 +13,23 @@ interface Tab {
 const TABS: Tab[] = [
   {
     label: 'Koltuk Yıkama',
-    before: '/images/oncesi-sonrasi/koltuk-oncesi.jpg',
-    after: '/images/oncesi-sonrasi/koltuk-sonrasi.jpg',
+    before: '/images/oncesi-sonrasi/koltuk-oncesi.svg',
+    after: '/images/oncesi-sonrasi/koltuk-sonrasi.svg',
   },
   {
     label: 'Araç İçi',
-    before: '/images/oncesi-sonrasi/arac-ici-oncesi.jpg',
-    after: '/images/oncesi-sonrasi/arac-ici-sonrasi.jpg',
+    before: '/images/oncesi-sonrasi/arac-ici-oncesi.svg',
+    after: '/images/oncesi-sonrasi/arac-ici-sonrasi.svg',
   },
   {
     label: 'Tavan Temizliği',
-    before: '/images/oncesi-sonrasi/tavan-oncesi.jpg',
-    after: '/images/oncesi-sonrasi/tavan-sonrasi.jpg',
+    before: '/images/oncesi-sonrasi/tavan-oncesi.svg',
+    after: '/images/oncesi-sonrasi/tavan-sonrasi.svg',
   },
   {
     label: 'Deri Koltuk',
-    before: '/images/oncesi-sonrasi/deri-oncesi.jpg',
-    after: '/images/oncesi-sonrasi/deri-sonrasi.jpg',
+    before: '/images/oncesi-sonrasi/deri-oncesi.svg',
+    after: '/images/oncesi-sonrasi/deri-sonrasi.svg',
   },
 ]
 
