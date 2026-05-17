@@ -20,24 +20,26 @@ const SERVICE_AREAS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#080808]">
-      {/* Gold gradient top divider */}
-      <div className="h-0.5 bg-gradient-to-r from-transparent via-gold-500/50 to-transparent" />
+    <footer className="bg-[#050505]">
+      {/* Yellow gradient top divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-gold-500/50 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand column */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-gold-500 text-lg">✦</span>
-              <h3 className="font-playfair text-2xl font-bold text-gold-gradient">
+            <div className="flex items-center gap-2.5 mb-5">
+              <div className="w-8 h-8 rounded-xl bg-gold-500 flex items-center justify-center">
+                <span className="text-black text-sm font-black">D</span>
+              </div>
+              <h3 className="font-playfair text-xl font-bold text-white">
                 {BUSINESS_NAME}
               </h3>
             </div>
-            <p className="text-white/40 text-sm leading-relaxed mb-4">
+            <p className="text-white/35 text-sm leading-relaxed mb-3">
               {BUSINESS_LOCATION} — İzmir&apos;in Premium Detailing Merkezi
             </p>
-            <p className="text-white/30 text-xs leading-relaxed mb-6">
+            <p className="text-white/20 text-xs leading-relaxed mb-7">
               Profesyonel oto detaylı temizlik, araç koltuk yıkama ve ev koltuk
               temizleme hizmetleri.
             </p>
@@ -48,7 +50,7 @@ export default function Footer() {
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full glass border border-white/10 flex items-center justify-center text-white/40 hover:text-gold-400 hover:border-gold-500/40 transition-all duration-300"
+                className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-white/35 hover:text-gold-400 hover:border-gold-500/40 hover:bg-gold-500/5 transition-all duration-300"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -59,7 +61,7 @@ export default function Footer() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full glass border border-white/10 flex items-center justify-center text-white/40 hover:text-[#25D366] hover:border-[#25D366]/40 transition-all duration-300"
+                className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-white/35 hover:text-green-400 hover:border-green-400/40 hover:bg-green-500/5 transition-all duration-300"
                 aria-label="WhatsApp"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -71,18 +73,19 @@ export default function Footer() {
 
           {/* Services column */}
           <div>
-            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">
+            <h4 className="text-white font-bold mb-5 text-xs uppercase tracking-[0.2em]">
               Hizmetler
             </h4>
-            <ul className="flex flex-col gap-2.5 text-sm text-white/40">
+            <ul className="flex flex-col gap-3 text-sm text-white/35">
               {SERVICE_LINKS.map(s => (
                 <li key={s}>
                   <a
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-gold-400 transition-colors duration-200"
+                    className="hover:text-gold-400 transition-colors duration-200 flex items-center gap-2 group"
                   >
+                    <span className="w-1 h-1 rounded-full bg-gold-500/40 group-hover:bg-gold-400 transition-colors" />
                     {s}
                   </a>
                 </li>
@@ -92,16 +95,16 @@ export default function Footer() {
 
           {/* Contact + Service Areas column */}
           <div>
-            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">
+            <h4 className="text-white font-bold mb-5 text-xs uppercase tracking-[0.2em]">
               İletişim
             </h4>
-            <ul className="flex flex-col gap-3 text-sm text-white/40 mb-8">
+            <ul className="flex flex-col gap-3.5 text-sm text-white/35 mb-8">
               <li>
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-green-400 transition-colors flex items-center gap-2"
+                  className="hover:text-green-400 transition-colors flex items-center gap-2.5"
                 >
                   <span className="text-base">📱</span>
                   {BUSINESS_PHONE}
@@ -112,26 +115,26 @@ export default function Footer() {
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gold-400 transition-colors flex items-center gap-2"
+                  className="hover:text-gold-400 transition-colors flex items-center gap-2.5"
                 >
                   <span className="text-base">📸</span>
                   {INSTAGRAM_HANDLE}
                 </a>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2.5">
                 <span className="text-base">📍</span>
                 {BUSINESS_LOCATION}
               </li>
             </ul>
 
-            <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">
+            <h4 className="text-white font-bold mb-3 text-xs uppercase tracking-[0.2em]">
               Hizmet Bölgeleri
             </h4>
             <ul className="flex flex-wrap gap-2">
               {SERVICE_AREAS.map(area => (
                 <li
                   key={area}
-                  className="text-xs text-white/30 bg-white/5 border border-white/8 px-2.5 py-1 rounded-full"
+                  className="text-xs text-white/25 bg-white/[0.03] border border-white/[0.06] px-2.5 py-1 rounded-lg hover:border-gold-500/20 hover:text-white/40 transition-all duration-200 cursor-default"
                 >
                   {area}
                 </li>
@@ -141,11 +144,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/5 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-white/20 text-xs">
+        <div className="border-t border-white/[0.05] mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
+          <p className="text-white/15 text-xs">
             © 2025 {BUSINESS_NAME}. Tüm Hakları Saklıdır.
           </p>
-          <p className="text-white/15 text-xs">
+          <p className="text-white/10 text-xs">
             İzmir Buca Oto Detaylı Temizlik · Araç Koltuk Yıkama · Ev Koltuk Temizleme
           </p>
         </div>

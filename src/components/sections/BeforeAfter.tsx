@@ -27,15 +27,10 @@ function ComparisonSlider({
     isDragging.current = true
     updatePosition(e.clientX)
   }
-
   const handleMouseMove = (e: React.MouseEvent) => {
     if (isDragging.current) updatePosition(e.clientX)
   }
-
-  const handleMouseUp = () => {
-    isDragging.current = false
-  }
-
+  const handleMouseUp = () => { isDragging.current = false }
   const handleTouchMove = (e: React.TouchEvent) => {
     updatePosition(e.touches[0].clientX)
   }
@@ -43,68 +38,86 @@ function ComparisonSlider({
   return (
     <div
       ref={containerRef}
-      className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden cursor-col-resize select-none"
+      className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden cursor-col-resize select-none border border-white/[0.06]"
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
       onTouchMove={handleTouchMove}
     >
-      {/* BEFORE - dirty brownish */}
+      {/* BEFORE - dirty, dark brownish with texture */}
       <div
-        className="absolute inset-0 flex items-center justify-center"
+        className="absolute inset-0 flex items-end justify-start"
         style={{
-          background:
-            'linear-gradient(135deg, #3d2b1f 0%, #2a1a0f 50%, #1a0f08 100%)',
+          background: 'linear-gradient(135deg, #2a1a0a 0%, #1a1008 40%, #120a04 100%)',
         }}
       >
-        <div
-          className="absolute inset-0 opacity-25"
+        {/* Stain patterns */}
+        <div className="absolute inset-0 opacity-40"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")`,
+            backgroundImage: `
+              radial-gradient(ellipse 120px 80px at 30% 40%, rgba(60,30,10,0.8) 0%, transparent 100%),
+              radial-gradient(ellipse 90px 60px at 70% 60%, rgba(50,25,8,0.7) 0%, transparent 100%),
+              radial-gradient(ellipse 60px 40px at 50% 30%, rgba(80,40,15,0.6) 0%, transparent 100%)
+            `,
           }}
         />
-        <span className="font-playfair text-5xl font-bold text-white/20 z-10">
-          {beforeLabel}
-        </span>
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E")`,
+          }}
+        />
+        {/* Dirty marks */}
+        <div className="absolute top-[20%] left-[20%] w-32 h-20 rounded-full bg-amber-900/30 blur-xl" />
+        <div className="absolute top-[50%] left-[60%] w-24 h-16 rounded-full bg-yellow-900/25 blur-lg" />
+        <div className="absolute top-[70%] left-[30%] w-20 h-12 rounded-full bg-amber-800/20 blur-lg" />
+        <p className="absolute bottom-6 left-6 font-playfair text-xs font-bold text-white/20 tracking-[0.3em] uppercase z-10">
+          Temizlenmemiş
+        </p>
       </div>
 
-      {/* AFTER - clean dark with subtle shimmer */}
+      {/* AFTER - clean black with subtle yellow shimmer */}
       <div
-        className="absolute inset-0 flex items-center justify-center overflow-hidden"
+        className="absolute inset-0 flex items-end justify-end overflow-hidden"
         style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
       >
+        <div className="absolute inset-0 bg-[#0a0a0a]" />
         <div
           className="absolute inset-0"
           style={{
-            background:
-              'linear-gradient(135deg, #1a1a1a 0%, #242424 50%, #0a0a0a 100%)',
+            background: 'radial-gradient(ellipse at 40% 40%, rgba(234,179,8,0.06) 0%, transparent 70%)',
           }}
         />
+        {/* Subtle shine effect */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 opacity-30"
           style={{
-            background:
-              'radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%)',
+            backgroundImage: `
+              linear-gradient(135deg, transparent 40%, rgba(234,179,8,0.05) 50%, transparent 60%)
+            `,
           }}
         />
-        <span className="font-playfair text-5xl font-bold text-gold-500/40 z-10">
-          {afterLabel}
-        </span>
+        {/* Reflection lines */}
+        <div className="absolute top-[25%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+        <div className="absolute top-[45%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/3 to-transparent" />
+        <p className="absolute bottom-6 right-6 font-playfair text-xs font-bold text-gold-400/60 tracking-[0.3em] uppercase z-10">
+          Profesyonel Temizlik
+        </p>
       </div>
 
-      {/* Gold divider line */}
+      {/* Yellow divider line */}
       <div
-        className="absolute top-0 bottom-0 w-0.5 bg-gold-500 z-10 shadow-gold-glow"
-        style={{ left: `${position}%` }}
+        className="absolute top-0 bottom-0 w-[2px] bg-gold-400 z-10"
+        style={{ left: `${position}%`, boxShadow: '0 0 12px rgba(234,179,8,0.6)' }}
       >
         {/* Handle circle */}
-        <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-gold-500 flex items-center justify-center shadow-gold-glow-lg">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-gold-400 flex items-center justify-center shadow-gold-glow-lg">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
             <path
-              d="M5 8H11M5 8L3 6M5 8L3 10M11 8L13 6M11 8L13 10"
-              stroke="#0a0a0a"
-              strokeWidth="1.5"
+              d="M6 9H12M6 9L4 7M6 9L4 11M12 9L14 7M12 9L14 11"
+              stroke="#000000"
+              strokeWidth="1.8"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
@@ -113,10 +126,10 @@ function ComparisonSlider({
       </div>
 
       {/* Corner labels */}
-      <div className="absolute top-4 left-4 z-20 bg-black/70 text-white/70 text-xs px-3 py-1 rounded-full tracking-widest">
+      <div className="absolute top-4 left-4 z-20 bg-black/75 backdrop-blur-sm text-white/60 text-xs px-3 py-1.5 rounded-xl tracking-widest font-medium border border-white/10">
         {beforeLabel}
       </div>
-      <div className="absolute top-4 right-4 z-20 bg-gold-500/90 text-black text-xs px-3 py-1 rounded-full tracking-widest font-semibold">
+      <div className="absolute top-4 right-4 z-20 bg-gold-500 text-black text-xs px-3 py-1.5 rounded-xl tracking-widest font-black">
         {afterLabel}
       </div>
     </div>
@@ -129,7 +142,7 @@ export default function BeforeAfter() {
   const [activeTab, setActiveTab] = useState(0)
 
   return (
-    <section id="oncesi-sonrasi" className="section-padding bg-[#0d0d0d]">
+    <section id="oncesi-sonrasi" className="section-padding bg-[#050505]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -138,15 +151,15 @@ export default function BeforeAfter() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="text-gold-500 text-sm tracking-widest uppercase font-medium">
+          <span className="inline-block text-gold-400 text-xs tracking-[0.25em] uppercase font-semibold border border-gold-500/25 bg-gold-500/5 px-4 py-2 rounded-full mb-4">
             Gerçek Sonuçlar
           </span>
-          <h2 className="font-playfair text-4xl sm:text-5xl font-bold text-white mt-2 mb-4">
+          <h2 className="font-playfair text-4xl sm:text-5xl font-bold text-white mt-3 mb-4">
             Fark Kendisi{' '}
             <span className="text-gold-gradient">Konuşuyor</span>
           </h2>
-          <p className="text-white/50 max-w-xl mx-auto">
-            Kaydırarak öncesi ve sonrası arasındaki farkı görün.
+          <p className="text-white/40 max-w-xl mx-auto">
+            Kaydırarak öncesi ve sonrası arasındaki gerçek farkı görün.
           </p>
         </motion.div>
 
@@ -162,10 +175,10 @@ export default function BeforeAfter() {
             <button
               key={i}
               onClick={() => setActiveTab(i)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${
                 activeTab === i
                   ? 'bg-gold-500 text-black'
-                  : 'glass text-white/60 hover:text-white border border-white/10'
+                  : 'bg-white/[0.04] border border-white/[0.07] text-white/50 hover:text-white hover:border-white/15'
               }`}
             >
               {tab}
@@ -179,10 +192,10 @@ export default function BeforeAfter() {
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
-          className="max-w-2xl mx-auto"
+          className="max-w-3xl mx-auto"
         >
           <ComparisonSlider />
-          <p className="text-center text-white/40 text-sm mt-4">
+          <p className="text-center text-white/25 text-xs mt-4 tracking-widest uppercase">
             ← Kaydırarak farkı görün →
           </p>
         </motion.div>

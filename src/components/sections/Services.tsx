@@ -21,7 +21,7 @@ const itemVariants = {
 
 export default function Services() {
   return (
-    <section id="hizmetler" className="section-padding bg-dark-800">
+    <section id="hizmetler" className="section-padding bg-[#080808]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Hizmetlerimiz"
