@@ -20,6 +20,7 @@ export interface Package {
   highlighted: boolean
   badge?: string
   cta: string
+  whatsappMessage: string
 }
 
 export interface Testimonial {

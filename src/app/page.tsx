@@ -7,6 +7,7 @@ import BeforeAfter from '@/components/sections/BeforeAfter'
 import ProblemSection from '@/components/sections/ProblemSection'
 import Packages from '@/components/sections/Packages'
 import Process from '@/components/sections/Process'
+import InstagramFeed from '@/components/sections/InstagramFeed'
 import Testimonials from '@/components/sections/Testimonials'
 import FAQ from '@/components/sections/FAQ'
 import FinalCTA from '@/components/sections/FinalCTA'
@@ -26,6 +27,8 @@ export default function Home() {
       <Packages />
       <div className="section-divider" />
       <Process />
+      <div className="section-divider" />
+      <InstagramFeed />
       <div className="section-divider" />
       <Testimonials />
       <div className="section-divider" />

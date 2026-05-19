@@ -1,4 +1,4 @@
-import { BUSINESS_NAME, BUSINESS_LOCATION, INSTAGRAM_URL, WHATSAPP_URL, INSTAGRAM_HANDLE, BUSINESS_PHONE } from '@/lib/constants'
+import { BUSINESS_NAME, INSTAGRAM_URL, WHATSAPP_URL, INSTAGRAM_HANDLE, BUSINESS_PHONE, BUSINESS_ADDRESS, WORKING_HOURS, GOOGLE_MAPS_URL } from '@/lib/constants'
 
 const SERVICE_LINKS = [
   'Araç İçi Detaylı Temizlik',
@@ -35,7 +35,7 @@ export default function Footer() {
               </h3>
             </div>
             <p className="text-white/40 text-sm leading-relaxed mb-4">
-              {BUSINESS_LOCATION} — İzmir&apos;in Premium Detailing Merkezi
+              İzmir / Buca — İzmir&apos;in Premium Detailing Merkezi
             </p>
             <p className="text-white/30 text-xs leading-relaxed mb-6">
               Profesyonel oto detaylı temizlik, araç koltuk yıkama ve ev koltuk
@@ -95,7 +95,7 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">
               İletişim
             </h4>
-            <ul className="flex flex-col gap-3 text-sm text-white/40 mb-8">
+            <ul className="flex flex-col gap-3 text-sm text-white/40 mb-6">
               <li>
                 <a
                   href={WHATSAPP_URL}
@@ -118,9 +118,20 @@ export default function Footer() {
                   {INSTAGRAM_HANDLE}
                 </a>
               </li>
+              <li>
+                <a
+                  href={GOOGLE_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gold-400 transition-colors flex items-start gap-2"
+                >
+                  <span className="text-base leading-5">📍</span>
+                  <span>{BUSINESS_ADDRESS}</span>
+                </a>
+              </li>
               <li className="flex items-center gap-2">
-                <span className="text-base">📍</span>
-                {BUSINESS_LOCATION}
+                <span className="text-base">🕐</span>
+                {WORKING_HOURS}
               </li>
             </ul>
 

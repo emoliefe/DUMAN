@@ -47,7 +47,8 @@ export const PACKAGES: Package[] = [
     price: 'İletişime Geçin',
     priceNote: 'Araç tipine göre fiyat belirlenir',
     highlighted: false,
-    cta: 'WhatsApp\'tan Fiyat Al',
+    cta: 'Fiyat İçin Yaz',
+    whatsappMessage: 'Merhaba, Standart Paket hakkında bilgi almak istiyorum.',
     features: [
       { label: 'Araç iç süpürge', included: true },
       { label: 'Torpido ve kapı temizliği', included: true },
@@ -65,7 +66,8 @@ export const PACKAGES: Package[] = [
     price: 'İletişime Geçin',
     priceNote: 'Araç tipine göre fiyat belirlenir',
     highlighted: false,
-    cta: 'WhatsApp\'tan Fiyat Al',
+    cta: 'Fiyat İçin Yaz',
+    whatsappMessage: 'Merhaba, Orta Sınıf Paket hakkında bilgi almak istiyorum.',
     features: [
       { label: 'Araç iç süpürge', included: true },
       { label: 'Torpido ve kapı temizliği', included: true },
@@ -85,6 +87,7 @@ export const PACKAGES: Package[] = [
     highlighted: true,
     badge: 'Önerilen',
     cta: 'Hemen Randevu Al',
+    whatsappMessage: 'Merhaba, Premium Paket hakkında bilgi almak istiyorum.',
     features: [
       { label: 'Araç iç süpürge', included: true },
       { label: 'Torpido ve kapı temizliği', included: true },

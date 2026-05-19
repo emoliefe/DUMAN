@@ -2,126 +2,154 @@
 
 import { motion } from 'framer-motion'
 import { MessageCircle, MapPin } from 'lucide-react'
-import { WHATSAPP_URL, INSTAGRAM_URL, INSTAGRAM_HANDLE } from '@/lib/constants'
+import {
+  WHATSAPP_URL,
+  INSTAGRAM_URL,
+  INSTAGRAM_HANDLE,
+  GOOGLE_MAPS_EMBED,
+  GOOGLE_MAPS_URL,
+} from '@/lib/constants'
 
 export default function FinalCTA() {
   return (
     <section
       id="iletisim"
-      className="section-padding bg-dark-900 relative overflow-hidden"
+      className="relative section-padding bg-[#080808] overflow-hidden"
     >
-      {/* Dramatic gold glow background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,_rgba(201,168,76,0.12)_0%,_transparent_70%)]" />
-      <div className="glow-orb w-96 h-96 bg-gold-500 -top-20 left-1/2 -translate-x-1/2 opacity-10" />
-      <div className="glow-orb w-64 h-64 bg-gold-400 bottom-0 right-10 opacity-8" />
+      {/* Top gold line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-500/50 to-transparent" />
 
-      {/* Gold top border */}
-      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gold-gradient" />
+      {/* Background glows */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,_rgba(201,168,76,0.1)_0%,_transparent_65%)]" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-gold-500/5 blur-[80px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-amber-900/10 blur-[80px] pointer-events-none" />
 
       <div className="max-w-3xl mx-auto text-center relative z-10 px-4 sm:px-6">
+
+        {/* Tag */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 glass-gold rounded-full px-5 py-2 mb-10"
         >
-          <span className="text-xs font-semibold tracking-[0.2em] text-gold-500 uppercase bg-gold-500/10 border border-gold-500/30 px-4 py-2 rounded-full">
+          <span className="text-gold-500 text-xs tracking-widest uppercase font-semibold">
             Harekete Geçin
           </span>
         </motion.div>
 
+        {/* Heading */}
         <motion.h2
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-playfair text-3xl md:text-5xl font-bold text-white mt-8 mb-6 leading-tight"
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="font-playfair text-3xl md:text-5xl font-bold text-white leading-tight mb-4"
         >
-          Aracınız Kirli Görünmüyor Olabilir.
+          Aracınız Kirli Görünmüyor
           <br />
-          <span className="text-gold-gradient text-2xl md:text-3xl font-semibold">
-            Ama Derinlemesine Temiz Olduğu Anlamına Gelmez.
-          </span>
+          <span className="text-outline font-playfair text-4xl md:text-6xl">Olabilir.</span>
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-white/50 text-lg mb-10 leading-relaxed"
+          className="font-playfair text-xl md:text-2xl text-gold-gradient font-semibold mb-6"
         >
-          Profesyonel ekibimizle iletişime geçin. Ücretsiz keşif ve fiyat teklifi alın.
+          Ama Derinlemesine Temiz Olduğu Anlamına Gelmez.
         </motion.p>
 
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="text-white/45 text-base mb-10 leading-relaxed max-w-xl mx-auto"
+        >
+          Profesyonel ekibimizle iletişime geçin.
+          <span className="text-white/70"> Ücretsiz keşif ve fiyat teklifi</span> alın.
+        </motion.p>
+
+        {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex flex-col sm:flex-row gap-4 justify-center mb-6"
         >
-          <a
+          <motion.a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 bg-green-500 hover:bg-green-400 text-white font-bold px-10 py-5 rounded-full text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/30"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            className="flex items-center justify-center gap-3 bg-green-500 hover:bg-green-400 text-white font-bold px-10 py-5 rounded-full text-lg transition-all duration-300 shadow-xl shadow-green-500/20 hover:shadow-green-500/35 wa-pulse"
           >
             <MessageCircle size={22} />
             WhatsApp&apos;tan Hemen Randevu Al
-          </a>
+          </motion.a>
         </motion.div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-white/30 text-sm mb-12"
+          className="flex items-center justify-center gap-2 text-white/30 text-sm mb-14"
         >
-          veya Instagram&apos;dan DM atın:{' '}
+          <span className="text-gold-500/50 text-base">📷</span>
+          <span>veya Instagram&apos;dan DM atın:{' '}</span>
           <a
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gold-500 hover:underline"
+            className="text-gold-500 hover:text-gold-300 transition-colors"
           >
             {INSTAGRAM_HANDLE}
           </a>
-        </motion.p>
+        </motion.div>
 
-        {/* Map placeholder */}
+        {/* Google Maps */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="glass-card rounded-2xl overflow-hidden border-gold-500/20"
+          transition={{ duration: 0.7, delay: 0.5 }}
+          className="rounded-2xl overflow-hidden border border-gold-500/20"
         >
-          <div className="h-48 bg-gradient-to-br from-dark-700 to-dark-800 flex flex-col items-center justify-center gap-3">
-            <MapPin size={32} className="text-gold-500" />
-            <p className="text-white font-semibold text-lg">İzmir / Buca</p>
-            <p className="text-white/40 text-sm">Detaylı adres için WhatsApp&apos;tan yazın</p>
+          <iframe
+            src={GOOGLE_MAPS_EMBED}
+            width="100%"
+            height="280"
+            style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg)' }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Duman Detay Konum"
+          />
+          <div className="flex items-center justify-between px-5 py-3.5 bg-[#0f0f0f] border-t border-gold-500/10">
+            <div className="flex items-center gap-2 text-white/45 text-sm">
+              <MapPin size={13} className="text-gold-500 flex-shrink-0" />
+              <span>Çamlıpınar, 293/4. Sk. No:3/A, Buca/İzmir</span>
+            </div>
             <a
-              href={WHATSAPP_URL}
+              href={GOOGLE_MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gold-500 text-xs border border-gold-500/30 px-4 py-2 rounded-full hover:bg-gold-500/10 transition-colors mt-1"
+              className="text-gold-400 text-xs border border-gold-500/25 px-3 py-1.5 rounded-full hover:bg-gold-500/8 transition-colors whitespace-nowrap"
             >
-              Yol Tarifi Al →
+              Yol Tarifi →
             </a>
           </div>
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="text-white/20 text-xs mt-8"
-        >
+        <p className="text-white/15 text-xs mt-8">
           İzmir Buca · Profesyonel Oto Detaylı Temizlik · Araç Koltuk Yıkama · Ev Koltuk Temizleme
-        </motion.p>
+        </p>
       </div>
     </section>
   )

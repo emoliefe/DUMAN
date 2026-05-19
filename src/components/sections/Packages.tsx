@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { PACKAGES } from '@/lib/data'
+import { WHATSAPP_URL } from '@/lib/constants'
 import SectionHeader from '@/components/ui/SectionHeader'
 import PackageCard from '@/components/ui/PackageCard'
 
@@ -36,9 +37,9 @@ export default function Packages() {
           className="text-center mt-10"
         >
           <p className="text-white/40 text-sm">
-            Fiyatlar araç tipine göre değişmektedir. Kesin fiyat için{' '}
+            Fiyatlar araç tipine ve büyüklüğüne göre belirlenmektedir. Kesin fiyat için{' '}
             <a
-              href="https://wa.me/905XXXXXXXXX"
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-gold-400 hover:underline"

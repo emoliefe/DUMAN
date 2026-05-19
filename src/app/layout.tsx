@@ -35,12 +35,16 @@ const jsonLd = {
   name: 'Duman Detay',
   description:
     "İzmir Buca'da profesyonel oto detaylı temizlik, araç koltuk yıkama ve ev koltuk temizleme hizmetleri.",
+  telephone: '+905546471335',
   address: {
     '@type': 'PostalAddress',
+    streetAddress: 'Çamlıpınar, 293/4. Sk. No:3/A',
     addressLocality: 'Buca',
     addressRegion: 'İzmir',
+    postalCode: '35390',
     addressCountry: 'TR',
   },
+  openingHours: 'Mo Tu We Th Fr Sa 09:00-19:00',
   sameAs: ['https://www.instagram.com/dumandetay'],
   areaServed: 'İzmir, Buca',
   priceRange: '₺₺',

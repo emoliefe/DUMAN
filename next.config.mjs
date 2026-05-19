@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
   images: {
-    formats: ['image/avif', 'image/webp'],
-    domains: ['instagram.com', 'www.instagram.com', 'cdninstagram.com'],
+    unoptimized: true,
   },
   compress: true,
 }

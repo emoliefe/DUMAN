@@ -2,13 +2,18 @@
 
 import { useRef, useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 interface ComparisonSliderProps {
+  beforeSrc?: string
+  afterSrc?: string
   beforeLabel?: string
   afterLabel?: string
 }
 
 function ComparisonSlider({
+  beforeSrc,
+  afterSrc,
   beforeLabel = 'ÖNCE',
   afterLabel = 'SONRA',
 }: ComparisonSliderProps) {
@@ -27,15 +32,10 @@ function ComparisonSlider({
     isDragging.current = true
     updatePosition(e.clientX)
   }
-
   const handleMouseMove = (e: React.MouseEvent) => {
     if (isDragging.current) updatePosition(e.clientX)
   }
-
-  const handleMouseUp = () => {
-    isDragging.current = false
-  }
-
+  const handleMouseUp = () => { isDragging.current = false }
   const handleTouchMove = (e: React.TouchEvent) => {
     updatePosition(e.touches[0].clientX)
   }
@@ -50,47 +50,53 @@ function ComparisonSlider({
       onMouseLeave={handleMouseUp}
       onTouchMove={handleTouchMove}
     >
-      {/* BEFORE - dirty brownish */}
-      <div
-        className="absolute inset-0 flex items-center justify-center"
-        style={{
-          background:
-            'linear-gradient(135deg, #3d2b1f 0%, #2a1a0f 50%, #1a0f08 100%)',
-        }}
-      >
-        <div
-          className="absolute inset-0 opacity-25"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")`,
-          }}
-        />
-        <span className="font-playfair text-5xl font-bold text-white/20 z-10">
-          {beforeLabel}
-        </span>
+      {/* BEFORE */}
+      <div className="absolute inset-0">
+        {beforeSrc ? (
+          <Image
+            src={beforeSrc}
+            alt={beforeLabel}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        ) : (
+          <div
+            className="w-full h-full flex items-center justify-center"
+            style={{ background: 'linear-gradient(135deg, #3d2b1f 0%, #2a1a0f 50%, #1a0f08 100%)' }}
+          >
+            <div
+              className="absolute inset-0 opacity-25"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")`,
+              }}
+            />
+            <span className="font-playfair text-5xl font-bold text-white/20 z-10 relative">
+              {beforeLabel}
+            </span>
+          </div>
+        )}
       </div>
 
-      {/* AFTER - clean dark with subtle shimmer */}
+      {/* AFTER — clipped */}
       <div
-        className="absolute inset-0 flex items-center justify-center overflow-hidden"
+        className="absolute inset-0 overflow-hidden"
         style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
       >
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(135deg, #1a1a1a 0%, #242424 50%, #0a0a0a 100%)',
-          }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%)',
-          }}
-        />
-        <span className="font-playfair text-5xl font-bold text-gold-500/40 z-10">
-          {afterLabel}
-        </span>
+        {afterSrc ? (
+          <Image
+            src={afterSrc}
+            alt={afterLabel}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #1a1a1a 0%, #242424 50%, #0a0a0a 100%)' }}>
+            <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%)' }} />
+            <span className="font-playfair text-5xl font-bold text-gold-500/40 z-10 relative">{afterLabel}</span>
+          </div>
+        )}
       </div>
 
       {/* Gold divider line */}
@@ -98,16 +104,9 @@ function ComparisonSlider({
         className="absolute top-0 bottom-0 w-0.5 bg-gold-500 z-10 shadow-gold-glow"
         style={{ left: `${position}%` }}
       >
-        {/* Handle circle */}
         <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-gold-500 flex items-center justify-center shadow-gold-glow-lg">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path
-              d="M5 8H11M5 8L3 6M5 8L3 10M11 8L13 6M11 8L13 10"
-              stroke="#0a0a0a"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+            <path d="M5 8H11M5 8L3 6M5 8L3 10M11 8L13 6M11 8L13 10" stroke="#0a0a0a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
       </div>
@@ -123,10 +122,22 @@ function ComparisonSlider({
   )
 }
 
-const TABS = ['Koltuk Yıkama', 'Araç İçi', 'Tavan Temizliği', 'Deri Koltuk']
+const TABS = [
+  {
+    label: 'Koltuk Yıkama',
+    before: '/images/before-after/koltuk-once.jpg',
+    after: '/images/before-after/koltuk-sonra.jpg',
+  },
+  {
+    label: 'Araç İçi',
+    before: '/images/before-after/arac-ici-once.jpg',
+    after: '/images/before-after/arac-ici-sonra.jpg',
+  },
+]
 
 export default function BeforeAfter() {
   const [activeTab, setActiveTab] = useState(0)
+  const tab = TABS[activeTab]
 
   return (
     <section id="oncesi-sonrasi" className="section-padding bg-[#0d0d0d]">
@@ -158,7 +169,7 @@ export default function BeforeAfter() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="flex gap-2 justify-center mb-8 flex-wrap"
         >
-          {TABS.map((tab, i) => (
+          {TABS.map((t, i) => (
             <button
               key={i}
               onClick={() => setActiveTab(i)}
@@ -168,7 +179,7 @@ export default function BeforeAfter() {
                   : 'glass text-white/60 hover:text-white border border-white/10'
               }`}
             >
-              {tab}
+              {t.label}
             </button>
           ))}
         </motion.div>
@@ -181,7 +192,12 @@ export default function BeforeAfter() {
           transition={{ duration: 0.3 }}
           className="max-w-2xl mx-auto"
         >
-          <ComparisonSlider />
+          <ComparisonSlider
+            beforeSrc={tab.before}
+            afterSrc={tab.after}
+            beforeLabel="ÖNCE"
+            afterLabel="SONRA"
+          />
           <p className="text-center text-white/40 text-sm mt-4">
             ← Kaydırarak farkı görün →
           </p>
