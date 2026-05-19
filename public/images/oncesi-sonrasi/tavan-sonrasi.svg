@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="fab2">
+      <feTurbulence type="fractalNoise" baseFrequency="1.0 0.8" numOctaves="3" seed="13"/>
+      <feColorMatrix type="saturate" values="0.0"/>
+      <feBlend in="SourceGraphic" mode="overlay" result="out"/>
+      <feComposite in="out" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <radialGradient id="vg4" cx="50%" cy="50%" r="75%">
+      <stop offset="20%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.3"/>
+    </radialGradient>
+    <linearGradient id="ceil-c" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0%" stop-color="#f2efea"/>
+      <stop offset="50%" stop-color="#e8e5e0"/>
+      <stop offset="100%" stop-color="#d8d5d0"/>
+    </linearGradient>
+    <linearGradient id="light-glow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Clean off-white ceiling -->
+  <rect width="800" height="600" fill="url(#ceil-c)"/>
+  <rect width="800" height="600" filter="url(#fab2)" opacity="0.35"/>
+
+  <!-- Car frame edges (dark, clean) -->
+  <rect x="0" y="0" width="55" height="600" fill="#252530" opacity="0.95"/>
+  <rect x="745" y="0" width="55" height="600" fill="#252530" opacity="0.95"/>
+  <rect x="0" y="0" width="800" height="50" fill="#252530" opacity="0.9"/>
+  <rect x="0" y="550" width="800" height="50" fill="#252530" opacity="0.9"/>
+
+  <!-- Grab handle left (clean chrome/grey) -->
+  <rect x="100" y="70" width="130" height="22" rx="11" fill="#a0a0a8" opacity="0.85"/>
+  <rect x="104" y="73" width="122" height="8" rx="6" fill="#fff" opacity="0.25"/>
+  <!-- Grab handle right -->
+  <rect x="570" y="70" width="130" height="22" rx="11" fill="#a0a0a8" opacity="0.85"/>
+  <rect x="574" y="73" width="122" height="8" rx="6" fill="#fff" opacity="0.25"/>
+
+  <!-- Map light unit (clean, modern) -->
+  <rect x="320" y="55" width="160" height="55" rx="10" fill="#c5c2bc"/>
+  <rect x="332" y="65" width="60" height="32" rx="6" fill="#111"/>
+  <rect x="408" y="65" width="60" height="32" rx="6" fill="#111"/>
+  <!-- LED glow effect -->
+  <rect x="334" y="67" width="56" height="28" rx="5" fill="#fff" opacity="0.06"/>
+  <rect x="410" y="67" width="56" height="28" rx="5" fill="#fff" opacity="0.06"/>
+
+  <!-- Light glow on ceiling from map lights -->
+  <ellipse cx="365" cy="120" rx="100" ry="50" fill="#fff" opacity="0.08"/>
+  <ellipse cx="440" cy="120" rx="100" ry="50" fill="#fff" opacity="0.08"/>
+
+  <!-- Sun visor outlines (clean) -->
+  <rect x="120" y="95" width="220" height="18" rx="5" fill="#b0aaa0" opacity="0.6"/>
+  <rect x="460" y="95" width="220" height="18" rx="5" fill="#b0aaa0" opacity="0.6"/>
+
+  <!-- Sunroof seam -->
+  <rect x="180" y="110" width="440" height="320" rx="6" fill="none" stroke="#ccc8c2" stroke-width="3" opacity="0.6"/>
+  <rect x="185" y="115" width="430" height="310" rx="5" fill="#e4e0dc" opacity="0.2"/>
+
+  <!-- Subtle highlight stripe -->
+  <rect x="60" y="60" width="680" height="40" rx="15" fill="#fff" opacity="0.06"/>
+
+  <!-- Vignette -->
+  <rect width="800" height="600" fill="url(#vg4)"/>
+
+  <!-- SONRA label -->
+  <rect x="673" y="22" width="105" height="36" rx="10" fill="#EAB308"/>
+  <text x="725" y="45" font-family="Arial Black, Arial, sans-serif" font-size="14" font-weight="900" fill="#000" text-anchor="middle" letter-spacing="3">SONRA</text>
+</svg>

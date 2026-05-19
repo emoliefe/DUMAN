@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="dust2">
+      <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" seed="5"/>
+      <feColorMatrix type="matrix" values="0.4 0 0 0 0.15  0 0.3 0 0 0.08  0 0 0.15 0 0  0 0 0 2 -0.3"/>
+      <feBlend in="SourceGraphic" mode="multiply" result="out"/>
+      <feComposite in="out" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <filter id="sm-b">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <radialGradient id="vg7" cx="50%" cy="50%" r="75%">
+      <stop offset="20%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.65"/>
+    </radialGradient>
+    <linearGradient id="floor-d" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2e2010"/>
+      <stop offset="100%" stop-color="#160e04"/>
+    </linearGradient>
+    <linearGradient id="dash-d" x1="0" y1="0" x2="0.1" y2="1">
+      <stop offset="0%" stop-color="#3a2c18"/>
+      <stop offset="100%" stop-color="#221808"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Black dirty background -->
+  <rect width="800" height="600" fill="#100c06"/>
+
+  <!-- A-pillar left -->
+  <polygon points="0,0 100,0 190,600 0,600" fill="#1a1208"/>
+  <!-- A-pillar right -->
+  <polygon points="800,0 700,0 610,600 800,600" fill="#1a1208"/>
+
+  <!-- DASHBOARD (dirty, brownish) -->
+  <rect x="0" y="0" width="800" height="200" fill="url(#dash-d)"/>
+  <rect x="0" y="0" width="800" height="200" filter="url(#dust2)" opacity="0.75"/>
+  <!-- Dash top edge -->
+  <rect x="0" y="195" width="800" height="12" fill="#1a1006" opacity="0.8"/>
+
+  <!-- Instrument cluster area -->
+  <rect x="220" y="30" width="200" height="100" rx="12" fill="#1e1608"/>
+  <rect x="440" y="30" width="140" height="80" rx="10" fill="#1e1608"/>
+  <!-- Dust on gauges -->
+  <rect x="220" y="30" width="200" height="100" rx="12" fill="#30200a" opacity="0.4"/>
+  <rect x="440" y="30" width="140" height="80" rx="10" fill="#30200a" opacity="0.4"/>
+
+  <!-- Steering wheel (dirty) -->
+  <circle cx="280" cy="210" r="72" fill="none" stroke="#2e2010" stroke-width="20"/>
+  <circle cx="280" cy="210" r="72" fill="none" stroke="#1e1208" stroke-width="20" filter="url(#dust2)" opacity="0.7"/>
+  <circle cx="280" cy="210" r="22" fill="#281808"/>
+
+  <!-- Center console (dirty) -->
+  <rect x="326" y="195" width="148" height="260" rx="12" fill="#201808"/>
+  <rect x="326" y="195" width="148" height="260" rx="12" filter="url(#dust2)" opacity="0.7"/>
+  <!-- Grime on console -->
+  <rect x="326" y="195" width="148" height="260" rx="12" fill="#2a1c08" opacity="0.3"/>
+
+  <!-- SEATS (dirty fabric) -->
+  <!-- Left seat -->
+  <rect x="60" y="280" width="250" height="220" rx="18" fill="#3a2a14"/>
+  <rect x="60" y="280" width="250" height="220" rx="18" filter="url(#dust2)" opacity="0.75"/>
+  <!-- Right seat -->
+  <rect x="490" y="280" width="250" height="220" rx="18" fill="#3a2a14"/>
+  <rect x="490" y="280" width="250" height="220" rx="18" filter="url(#dust2)" opacity="0.75"/>
+
+  <!-- FLOOR MATS (very dirty) -->
+  <rect x="60" y="460" width="250" height="140" rx="0" fill="url(#floor-d)"/>
+  <rect x="60" y="460" width="250" height="140" filter="url(#dust2)" opacity="0.85"/>
+  <rect x="490" y="460" width="250" height="140" fill="url(#floor-d)"/>
+  <rect x="490" y="460" width="250" height="140" filter="url(#dust2)" opacity="0.85"/>
+
+  <!-- STAINS everywhere -->
+  <!-- Dashboard stains -->
+  <ellipse cx="200" cy="100" rx="70" ry="35" fill="#140800" opacity="0.75" filter="url(#sm-b)"/>
+  <ellipse cx="560" cy="80" rx="60" ry="30" fill="#160a00" opacity="0.7" filter="url(#sm-b)"/>
+  <!-- Seat stains -->
+  <ellipse cx="165" cy="360" rx="65" ry="45" fill="#120700" opacity="0.8" filter="url(#sm-b)"/>
+  <ellipse cx="610" cy="330" rx="55" ry="38" fill="#140800" opacity="0.75" filter="url(#sm-b)"/>
+  <ellipse cx="130" cy="430" rx="45" ry="28" fill="#0e0500" opacity="0.7" filter="url(#sm-b)"/>
+  <!-- Floor stains -->
+  <ellipse cx="155" cy="510" rx="80" ry="38" fill="#1a0c00" opacity="0.82" filter="url(#sm-b)"/>
+  <ellipse cx="610" cy="530" rx="70" ry="32" fill="#180a00" opacity="0.78" filter="url(#sm-b)"/>
+  <ellipse cx="200" cy="560" rx="50" ry="22" fill="#140800" opacity="0.7" filter="url(#sm-b)"/>
+
+  <!-- Grime tint -->
+  <rect width="800" height="600" fill="#2a1808" opacity="0.12"/>
+
+  <!-- Vignette -->
+  <rect width="800" height="600" fill="url(#vg7)"/>
+
+  <!-- ÖNCE label -->
+  <rect x="22" y="22" width="105" height="36" rx="10" fill="#000" opacity="0.8"/>
+  <text x="74" y="45" font-family="Arial Black, Arial, sans-serif" font-size="14" font-weight="900" fill="#ccc" text-anchor="middle" letter-spacing="3">ÖNCE</text>
+</svg>

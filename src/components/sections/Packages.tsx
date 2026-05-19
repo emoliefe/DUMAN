@@ -8,7 +8,7 @@ import PackageCard from '@/components/ui/PackageCard'
 
 export default function Packages() {
   return (
-    <section id="paketler" className="section-padding bg-dark-800">
+    <section id="paketler" className="section-padding bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Hizmet Paketlerimiz"

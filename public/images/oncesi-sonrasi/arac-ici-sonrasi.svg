@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="clean3">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="11"/>
+      <feColorMatrix type="saturate" values="0.05"/>
+      <feBlend in="SourceGraphic" mode="screen" result="out"/>
+      <feComposite in="out" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <radialGradient id="vg8" cx="50%" cy="50%" r="75%">
+      <stop offset="30%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.35"/>
+    </radialGradient>
+    <linearGradient id="floor-c" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1c1c22"/>
+      <stop offset="100%" stop-color="#0e0e14"/>
+    </linearGradient>
+    <linearGradient id="dash-c" x1="0" y1="0" x2="0.1" y2="1">
+      <stop offset="0%" stop-color="#282835"/>
+      <stop offset="100%" stop-color="#181825"/>
+    </linearGradient>
+    <linearGradient id="seat-cg" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#3a3a48"/>
+      <stop offset="100%" stop-color="#282835"/>
+    </linearGradient>
+    <linearGradient id="refl" x1="0.1" y1="0" x2="0.6" y2="0.5">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Clean dark background -->
+  <rect width="800" height="600" fill="#0c0c12"/>
+
+  <!-- A-pillar left -->
+  <polygon points="0,0 100,0 190,600 0,600" fill="#101018"/>
+  <!-- A-pillar right -->
+  <polygon points="800,0 700,0 610,600 800,600" fill="#101018"/>
+
+  <!-- DASHBOARD (clean, dark) -->
+  <rect x="0" y="0" width="800" height="200" fill="url(#dash-c)"/>
+  <rect x="0" y="0" width="800" height="200" filter="url(#clean3)" opacity="0.3"/>
+  <rect x="0" y="0" width="800" height="200" fill="url(#refl)"/>
+  <!-- Dash top edge (trim line) -->
+  <rect x="0" y="195" width="800" height="8" fill="#fff" opacity="0.03"/>
+
+  <!-- Instrument cluster (clean, lit) -->
+  <rect x="220" y="30" width="200" height="100" rx="12" fill="#1a1a28"/>
+  <rect x="220" y="30" width="200" height="100" rx="12" fill="#fff" opacity="0.02"/>
+  <!-- Gauge glows -->
+  <circle cx="275" cy="80" r="28" fill="none" stroke="#4a4a60" stroke-width="2" opacity="0.7"/>
+  <circle cx="345" cy="80" r="28" fill="none" stroke="#4a4a60" stroke-width="2" opacity="0.7"/>
+  <!-- Info screen -->
+  <rect x="440" y="30" width="140" height="80" rx="10" fill="#0d1520"/>
+  <rect x="444" y="34" width="132" height="72" rx="8" fill="#1a3040" opacity="0.8"/>
+  <rect x="444" y="34" width="132" height="12" rx="4" fill="#fff" opacity="0.04"/>
+
+  <!-- STEERING WHEEL (clean) -->
+  <circle cx="280" cy="210" r="72" fill="none" stroke="#2a2a38" stroke-width="22"/>
+  <circle cx="280" cy="210" r="72" fill="none" stroke="#fff" stroke-width="1" opacity="0.06"/>
+  <circle cx="280" cy="210" r="22" fill="#1e1e28"/>
+  <!-- Wheel spokes -->
+  <line x1="280" y1="145" x2="280" y2="190" stroke="#2a2a38" stroke-width="14"/>
+  <line x1="218" y1="247" x2="258" y2="225" stroke="#2a2a38" stroke-width="14"/>
+  <line x1="342" y1="247" x2="302" y2="225" stroke="#2a2a38" stroke-width="14"/>
+
+  <!-- Center console (clean) -->
+  <rect x="326" y="195" width="148" height="260" rx="12" fill="#1c1c28"/>
+  <rect x="326" y="195" width="148" height="260" rx="12" filter="url(#clean3)" opacity="0.2"/>
+  <!-- Console buttons/knobs -->
+  <circle cx="375" cy="260" r="14" fill="#252535"/>
+  <circle cx="425" cy="260" r="14" fill="#252535"/>
+  <rect x="348" y="300" width="104" height="22" rx="8" fill="#252535"/>
+
+  <!-- SEATS (clean dark fabric) -->
+  <!-- Left seat -->
+  <rect x="60" y="280" width="250" height="220" rx="18" fill="url(#seat-cg)"/>
+  <rect x="60" y="280" width="250" height="220" rx="18" filter="url(#clean3)" opacity="0.3"/>
+  <rect x="60" y="280" width="250" height="220" rx="18" fill="url(#refl)"/>
+  <!-- Right seat -->
+  <rect x="490" y="280" width="250" height="220" rx="18" fill="url(#seat-cg)"/>
+  <rect x="490" y="280" width="250" height="220" rx="18" filter="url(#clean3)" opacity="0.3"/>
+  <rect x="490" y="280" width="250" height="220" rx="18" fill="url(#refl)"/>
+  <!-- Seat seams -->
+  <line x1="185" y1="290" x2="185" y2="495" stroke="#2a2a38" stroke-width="1.5" opacity="0.5"/>
+  <line x1="615" y1="290" x2="615" y2="495" stroke="#2a2a38" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- FLOOR MATS (clean black) -->
+  <rect x="60" y="460" width="250" height="140" fill="url(#floor-c)"/>
+  <rect x="60" y="460" width="250" height="140" filter="url(#clean3)" opacity="0.2"/>
+  <rect x="490" y="460" width="250" height="140" fill="url(#floor-c)"/>
+  <rect x="490" y="460" width="250" height="140" filter="url(#clean3)" opacity="0.2"/>
+  <!-- Mat texture lines -->
+  <rect x="75" y="475" width="220" height="2" rx="1" fill="#fff" opacity="0.04"/>
+  <rect x="75" y="500" width="220" height="2" rx="1" fill="#fff" opacity="0.04"/>
+  <rect x="75" y="525" width="220" height="2" rx="1" fill="#fff" opacity="0.03"/>
+
+  <!-- Vignette -->
+  <rect width="800" height="600" fill="url(#vg8)"/>
+
+  <!-- SONRA label -->
+  <rect x="673" y="22" width="105" height="36" rx="10" fill="#EAB308"/>
+  <text x="725" y="45" font-family="Arial Black, Arial, sans-serif" font-size="14" font-weight="900" fill="#000" text-anchor="middle" letter-spacing="3">SONRA</text>
+</svg>

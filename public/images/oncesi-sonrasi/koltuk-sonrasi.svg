@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="fabric">
+      <feTurbulence type="fractalNoise" baseFrequency="1.2 0.9" numOctaves="3" seed="7"/>
+      <feColorMatrix type="saturate" values="0.08"/>
+      <feBlend in="SourceGraphic" mode="overlay" result="out"/>
+      <feComposite in="out" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <radialGradient id="vg2" cx="50%" cy="50%" r="75%">
+      <stop offset="30%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.4"/>
+    </radialGradient>
+    <linearGradient id="bg-c" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#141418"/>
+      <stop offset="100%" stop-color="#0a0a0d"/>
+    </linearGradient>
+    <linearGradient id="seat-c" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#7a8090"/>
+      <stop offset="50%" stop-color="#5a6070"/>
+      <stop offset="100%" stop-color="#404858"/>
+    </linearGradient>
+    <linearGradient id="cushion-c" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6a7080"/>
+      <stop offset="100%" stop-color="#4a5060"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0.1" y1="0" x2="0.6" y2="0.4">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Room bg -->
+  <rect width="800" height="600" fill="url(#bg-c)"/>
+
+  <!-- Floor shadow -->
+  <ellipse cx="400" cy="575" rx="260" ry="22" fill="#000" opacity="0.5"/>
+
+  <!-- === SEAT BACK === -->
+  <rect x="170" y="90" width="460" height="370" rx="28" fill="url(#seat-c)"/>
+  <rect x="170" y="90" width="460" height="370" rx="28" filter="url(#fabric)" opacity="0.6"/>
+  <rect x="170" y="90" width="460" height="370" rx="28" fill="url(#sheen)"/>
+  <!-- Side wings -->
+  <rect x="155" y="120" width="35" height="300" rx="12" fill="#505860"/>
+  <rect x="610" y="120" width="35" height="300" rx="12" fill="#505860"/>
+
+  <!-- Headrest -->
+  <rect x="275" y="45" width="250" height="90" rx="22" fill="#6a7280"/>
+  <rect x="275" y="45" width="250" height="90" rx="22" filter="url(#fabric)" opacity="0.5"/>
+  <rect x="275" y="45" width="250" height="90" rx="22" fill="url(#sheen)"/>
+  <!-- Headrest stalks -->
+  <rect x="330" y="130" width="20" height="25" rx="4" fill="#3a4050"/>
+  <rect x="450" y="130" width="20" height="25" rx="4" fill="#3a4050"/>
+
+  <!-- === SEAT CUSHION === -->
+  <rect x="140" y="430" width="520" height="150" rx="22" fill="url(#cushion-c)"/>
+  <rect x="140" y="430" width="520" height="150" rx="22" filter="url(#fabric)" opacity="0.5"/>
+
+  <!-- Seam lines (clean, visible) -->
+  <line x1="365" y1="100" x2="358" y2="425" stroke="#3a4050" stroke-width="2.5" opacity="0.6"/>
+  <line x1="435" y1="100" x2="442" y2="425" stroke="#3a4050" stroke-width="2.5" opacity="0.6"/>
+  <line x1="178" y1="220" x2="622" y2="220" stroke="#3a4050" stroke-width="2" opacity="0.5"/>
+  <line x1="178" y1="340" x2="622" y2="340" stroke="#3a4050" stroke-width="2" opacity="0.5"/>
+  <line x1="155" y1="455" x2="645" y2="455" stroke="#3a4050" stroke-width="2" opacity="0.5"/>
+
+  <!-- Highlight top of seat back -->
+  <rect x="185" y="98" width="430" height="50" rx="20" fill="#fff" opacity="0.05"/>
+  <!-- Highlight top cushion -->
+  <rect x="155" y="437" width="490" height="35" rx="18" fill="#fff" opacity="0.04"/>
+
+  <!-- Vignette -->
+  <rect width="800" height="600" fill="url(#vg2)"/>
+
+  <!-- SONRA label -->
+  <rect x="673" y="22" width="105" height="36" rx="10" fill="#EAB308"/>
+  <text x="725" y="45" font-family="Arial Black, Arial, sans-serif" font-size="14" font-weight="900" fill="#000" text-anchor="middle" letter-spacing="3">SONRA</text>
+</svg>

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <filter id="leath-d">
+      <feTurbulence type="fractalNoise" baseFrequency="0.45 0.3" numOctaves="4" seed="17"/>
+      <feColorMatrix type="matrix" values="0.45 0 0 0 0.12  0 0.3 0 0 0.05  0 0 0.15 0 0  0 0 0 2.5 -0.5"/>
+      <feBlend in="SourceGraphic" mode="multiply" result="out"/>
+      <feComposite in="out" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <filter id="spot-b2">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <radialGradient id="vg5" cx="50%" cy="50%" r="75%">
+      <stop offset="30%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+    <linearGradient id="leath-bg" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#4a3020"/>
+      <stop offset="50%" stop-color="#321c0c"/>
+      <stop offset="100%" stop-color="#200e04"/>
+    </linearGradient>
+    <linearGradient id="cush-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3c2415"/>
+      <stop offset="100%" stop-color="#22100a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Room bg -->
+  <rect width="800" height="600" fill="#0c0806"/>
+
+  <!-- Shadow -->
+  <ellipse cx="400" cy="575" rx="265" ry="25" fill="#000" opacity="0.7"/>
+
+  <!-- === LEATHER SEAT BACK === -->
+  <rect x="165" y="85" width="470" height="370" rx="26" fill="url(#leath-bg)"/>
+  <rect x="165" y="85" width="470" height="370" rx="26" filter="url(#leath-d)" opacity="0.8"/>
+
+  <!-- Seat side bolsters -->
+  <rect x="148" y="120" width="38" height="290" rx="14" fill="#2e1a0a"/>
+  <rect x="614" y="120" width="38" height="290" rx="14" fill="#2e1a0a"/>
+
+  <!-- Headrest -->
+  <rect x="272" y="42" width="256" height="88" rx="22" fill="#402810"/>
+  <rect x="272" y="42" width="256" height="88" rx="22" filter="url(#leath-d)" opacity="0.75"/>
+  <!-- Headrest posts -->
+  <rect x="328" y="126" width="22" height="26" rx="5" fill="#1a0c04"/>
+  <rect x="450" y="126" width="22" height="26" rx="5" fill="#1a0c04"/>
+
+  <!-- === SEAT CUSHION === -->
+  <rect x="138" y="428" width="524" height="152" rx="24" fill="url(#cush-bg)"/>
+  <rect x="138" y="428" width="524" height="152" rx="24" filter="url(#leath-d)" opacity="0.8"/>
+
+  <!-- STITCHING (dirty/faded) -->
+  <path d="M228 98 L222 448" stroke="#160a02" stroke-width="2.5" stroke-dasharray="9 6" opacity="0.6"/>
+  <path d="M572 98 L578 448" stroke="#160a02" stroke-width="2.5" stroke-dasharray="9 6" opacity="0.6"/>
+  <path d="M175 215 L625 215" stroke="#160a02" stroke-width="2" stroke-dasharray="9 6" opacity="0.5"/>
+  <path d="M175 315 L625 315" stroke="#160a02" stroke-width="2" stroke-dasharray="9 6" opacity="0.5"/>
+  <path d="M148 458 L652 458" stroke="#160a02" stroke-width="2" stroke-dasharray="9 6" opacity="0.5"/>
+
+  <!-- STAINS & GRIME -->
+  <ellipse cx="385" cy="220" rx="115" ry="80" fill="#0c0400" opacity="0.85" filter="url(#spot-b2)"/>
+  <ellipse cx="540" cy="155" rx="70" ry="48" fill="#0e0500" opacity="0.8" filter="url(#spot-b2)"/>
+  <ellipse cx="245" cy="320" rx="65" ry="48" fill="#0d0400" opacity="0.78" filter="url(#spot-b2)"/>
+  <ellipse cx="460" cy="360" rx="50" ry="36" fill="#0c0400" opacity="0.75" filter="url(#spot-b2)"/>
+  <ellipse cx="350" cy="480" rx="85" ry="40" fill="#0e0500" opacity="0.82" filter="url(#spot-b2)"/>
+  <ellipse cx="530" cy="495" rx="55" ry="30" fill="#0c0400" opacity="0.75" filter="url(#spot-b2)"/>
+  <circle cx="290" cy="165" r="22" fill="#100500" opacity="0.7" filter="url(#spot-b2)"/>
+  <circle cx="488" cy="268" r="16" fill="#0e0400" opacity="0.7" filter="url(#spot-b2)"/>
+
+  <!-- Crack lines on leather -->
+  <path d="M345 185 Q360 208 350 232 Q342 255 358 275" stroke="#1a0a02" stroke-width="1.5" fill="none" opacity="0.55"/>
+  <path d="M460 295 Q448 320 462 342" stroke="#1a0a02" stroke-width="1.2" fill="none" opacity="0.5"/>
+  <path d="M275 380 Q290 358 282 340" stroke="#1a0a02" stroke-width="1.2" fill="none" opacity="0.5"/>
+
+  <!-- Overall dark grime -->
+  <rect x="165" y="85" width="470" height="370" rx="26" fill="#1a0800" opacity="0.18"/>
+  <rect x="138" y="428" width="524" height="152" rx="24" fill="#1a0800" opacity="0.18"/>
+
+  <!-- Vignette -->
+  <rect width="800" height="600" fill="url(#vg5)"/>
+
+  <!-- ÖNCE label -->
+  <rect x="22" y="22" width="105" height="36" rx="10" fill="#000" opacity="0.8"/>
+  <text x="74" y="45" font-family="Arial Black, Arial, sans-serif" font-size="14" font-weight="900" fill="#ccc" text-anchor="middle" letter-spacing="3">ÖNCE</text>
+</svg>
